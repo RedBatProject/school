@@ -12,16 +12,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QVBoxLayout, QWidget, QFileDialog, QGridLayout, QMainWindow
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QCursor
-import sys
+# import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from bs4 import BeautifulSoup
-import requests
-from PIL import Image
-from io import BytesIO
+# from bs4 import BeautifulSoup
+# import requests
+# from PIL import Image
+# from io import BytesIO
 import os
-from zipfile import ZipFile
+# from zipfile import ZipFile
 from os.path import basename
 from PyQt5 import QtCore, QtGui, QtWidgets
 import jdatetime
@@ -233,13 +233,19 @@ class Ui_MainWindow(QtWidgets.QWidget):
             # classs , done5 = QtWidgets.QInputDialog.getText(
                 # self, 'put youre card', 'نام آموزگار را وارد کنید')
             classs , done6 = QtWidgets.QInputDialog.getText(
-                self, 'put youre card','پایه‌ی دانش آموز را وارد کنید'+'\n'+ 'یا کد معلم را وارد کنید')
+                self, 'put youre card','پایه‌ی دانش آموز را وارد کنید')
             if done6:
                 pass
             else:self.quit()
+            personalcode , done70 = QtWidgets.QInputDialog.getText(
+                self, 'put youre card','برای معلمین کد کلاس را وارد کنید\nبرای پرسنل یک عدد یک رقمی بنا بر رتبه\nبرای دانش آموزان این قسمت ر رها کنید.')
+            if done70:
+                pass
+            else:self.quit()
+            
             gui = Template()
             p = gui.open_image()
-    # up is to take image
+            # up is to take image
 
             if done1 and done2 and done4!="" :
                 try:
@@ -275,12 +281,21 @@ class Ui_MainWindow(QtWidgets.QWidget):
                                 'year': time.year,
                                 'hour':time.hour,
                                 'filename':p,
-                                'class':classs
+                                'class':classs,
+                                'personalcode':personalcode
                                         })
                     if name != "" and family != "":
-                        self.pixmap = QPixmap(p)
-                        self.pixmap_resized = self.pixmap.scaled(320, 405, QtCore.Qt.KeepAspectRatio)
-                        self.label_5.setPixmap(self.pixmap_resized)
+                        from pathlib import Path
+                        my_file = Path(f'{p}')
+                        if my_file.is_file():
+                            self.pixmap = QPixmap(p)
+                            # print(data[student]['filename'])
+                            self.pixmap_resized = self.pixmap.scaled(320, 405, QtCore.Qt.KeepAspectRatio)
+                            self.label_5.setPixmap(self.pixmap_resized)
+                        # self.pixmap = QPixmap(p)
+                        # self.pixmap_resized = self.pixmap.scaled(320, 405, QtCore.Qt.KeepAspectRatio)
+                        # self.label_5.setPixmap(self.pixmap_resized)
+                        else:self.label_5.setText("     تصویر موجود نیست")
                         self.label_5.setStyleSheet(
                                                 '''*{
                                                     color: 'black';

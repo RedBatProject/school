@@ -261,7 +261,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
             MainWindow.setWindowTitle("مدرسه دکتر علی شریعتی-خوش آمدید آقای باخدا")
             self.pushButton.setText("اضافه کردن ")
             self.pushButton.clicked.connect(self.add_on)
+            self.pushButton.clicked.disconnect(self.add_on_inactive)
             self.pushButton_2.setText("جست و جو ")
+            self.pushButton_2.clicked.disconnect(self.add_on_inactive)
             self.pushButton_2.clicked.connect(self.add_on_2)
             self.pushButton_5.hide()
         else:

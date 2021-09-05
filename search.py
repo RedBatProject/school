@@ -199,7 +199,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             for person in persons:     
                 self.labelS.setText('نام و نام خانوادگی :'
                     +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
-                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID']))
+                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID'])+'\n شماره ی کلاس: '+str(person['class']+'\nشماره ی پرسنلی: '+str(person['personalcode'])))
 
         # for perso in data:
         #     if perso['ID']==password or perso['name']==name and perso['family']==family:
@@ -222,31 +222,40 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self, 'Input telephone', 'شماره تلفن جدید را وارد کنید و یا خالی بگذارید:')
         code, done3 = QtWidgets.QInputDialog.getText(
             self, 'Input telephone', 'کد ملی جدید را وارد کنید و یا خالی بگذارید:')
+        personalcode, done30 = QtWidgets.QInputDialog.getText(
+            self, 'Input telephone',' کد پرسنلی جدید را وارد کنید و یا خالی بگذارید:')
+        classs, done31 = QtWidgets.QInputDialog.getText(
+            self, 'Input telephone', 'کد کلاس جدید و یا خالی بگذارید:')
 
         # langs =['C', 'c++', 'Java', 'Python', 'Javascript']
         password , done4 = QtWidgets.QInputDialog.getText(
         self, 'put youre card', 'شماره کارت جدید را وارد کنید و یا کارت جدید را روی دستگاه بگذارید را وارد کنید و یا خالی بگذارید:')
         gui = Template()
         p = gui.open_image()
-        print(data[b])
+        # print(data[b])
+        if personalcode!='':
+            data[b]['personalcode'] = personalcode
+        if classs!='':
+            data[b]['class'] = classs
         if password!='':
             data[b]['ID']=password
-            print(password)
+            # print(password)
         if name!='':
             data[b]['name']=name
-            print(name)
+            # print(name)
         if family!='':
             data[b]['family']=family
-            print(family)
+            # print(family)
         if code!='':
             data[b]['code']=code
-            print(code)
+            # print(code)
         if tell!='':
             data[b]['tell']=tell
-            print(tell)
+            # print(tell)
         if p!='':
             data[b]['filename']=p
-        print(data[b])
+            # print(data[b])
+
         with open('data.json', 'w+') as outfile:
             json.dump(data, outfile)
 
@@ -269,8 +278,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
         else:
             for person in persons:     
                 self.labelS.setText('نام و نام خانوادگی :'
-                                    +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
-                                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID']))
+                    +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
+                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID'])+'\n شماره ی کلاس: '+str(person['class']+'\nشماره ی پرسنلی: '+str(person['personalcode'])))
     def search_code(self):
         persons = []
         with open('data.json') as json_file:
@@ -288,9 +297,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
         else:
             for person in persons:     
                 self.labelS.setText('نام و نام خانوادگی :'
-                                    +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
-                                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID']))
-            # else:
+                    +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
+                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID'])+'\n شماره ی کلاس: '+str(person['class']+'\nشماره ی پرسنلی: '+str(person['personalcode'])))
                 # self.labelS.setText("این نام وجود ندارد.")
     def search_name(self):
         persons = []
@@ -309,7 +317,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.labelS.setText("این نام وجود ندارد.")
         else:
             for person in persons:
-            	tex+=('نام و نام خانوادگی :'+str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '+str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID']+"\n\n"))
+            	tex+=('نام و نام خانوادگی :'
+                    +str(person['name'])+' '+str(person['family'])+'\n'+'تلفن: '
+                    +str(person['tell'])+'\n کد ملی: '+str(person['code'])+'\n کد عبور: '+str(person['ID'])+'\n شماره ی کلاس: '+str(person['class']+'\nشماره ی پرسنلی: '+str(person['personalcode'])))
             self.labelS.setText(tex)
             # else:
                 # self.labelS.setText("این نام وجود ندارد.")
