@@ -47,7 +47,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             color: 'black';
             border: 1px solid '#808080';
             font-family: 'Arial';
-            font-size: 10px;
+            font-size: 13px;
             border-radius: 7px;
             margin: 0px 0px 0px 0px;
             padding: 0px;
@@ -296,11 +296,41 @@ class Ui_MainWindow(QtWidgets.QWidget):
         
         self.gridLayout_2.addWidget(self.label_25, 0, 2, 1, 1)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(980, 330, 41, 24))
+        self.pushButton.setGeometry(QtCore.QRect(860, 330, 158, 22))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.setStyleSheet(
+                        '''*{
+                    color: 'black';
+                    border: 1px solid '#808080';
+                    font-family: 'Arial';
+                    font-size: 9px;
+                    border-radius: 8px;
+                    margin: 1px 1px;
+                    padding: 1px;
+                    background: transparent;
+                    background-color: rgba(100, 100, 100, 0.4);
+                        }
+                        *:hover{
+                    color: 'black';
+                    border: 1px solid '#808080';
+                    font-family: 'Arial';
+                    font-size: 12px;
+                    border-radius: 8px;
+                    margin: 1px 1px;
+                    padding: 1px;
+                    background: transparent;
+                    background-color: rgba(100, 100, 100, 0.9);
+                        }''')
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(860, 330, 111, 22))
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.hide()
+        self.lineEdit.setStyleSheet('''*{
+                                        border-radius: 8px;
+                                    }''')
+        self.lineEdit.returnPressed.connect(self.pushButton.click)
+
+
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(60, 510, 761, 71))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
@@ -440,9 +470,11 @@ class Ui_MainWindow(QtWidgets.QWidget):
         # layout.addWidget(self.label_43)
         self.timer.timeout.connect(self.timerr)
         self.timer.start(1000)
-
+        # self.timer2 = QTimer(self)
+        # # layout.addWidget(self.label_43)
+        # self.timer2.timeout.connect(self.upsetline)
+        # self.timer2.start(5000)
         # end of clock
-
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1068, 22))
         self.menubar.setObjectName("menubar")
@@ -450,15 +482,15 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
+        # self.timer.
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_54.setText(_translate("MainWindow", "picture"))
-        self.label_53.setText(_translate("MainWindow", "information"))
+        self.label_54.setText(_translate("MainWindow", "     تصویر"))
+        self.label_53.setText(_translate("MainWindow", "     اطلاعات"))
         self.label_10.setText(_translate("MainWindow", "TextLabel"))
         self.label.setText(_translate("MainWindow", "t9"))
         self.label_6.setText(_translate("MainWindow", "t14"))
@@ -507,7 +539,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.label_49.setText(_translate("MainWindow", "TextLabel"))
         self.label_50.setText(_translate("MainWindow", "t8"))
         self.label_25.setText(_translate("MainWindow", "t1"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton.setText(_translate("MainWindow", "شروع"))
+        self.pushButton.clicked.connect(self.upset)
         self.label_51.setText(_translate("MainWindow", "plot"))
         self.label_52.setText(_translate("MainWindow", "TextLabel"))
         self.label_72.setText(_translate("MainWindow", "s5"))
@@ -535,12 +568,53 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
     def timerr(self):
         time = jdatetime.datetime.now()
-        self.label_43.setText(f'{time.hour} : {time.minute} : {time.second}')
+        second = f'{time.second}'
+        if len(second)==2:
+            second = time.second
+        else:
+            second = f'0{time.second}'
+        minute = f'{time.minute}'
+        if len(minute)==2:
+            minute = time.minute
+        else:
+            minute = f'0{time.minute}'
+        hour = f'{time.hour}'
+        if len(hour)==2:
+            hour = time.hour
+        else:
+            hour = f'0{time.hour}'
+
+        self.label_43.setText(f'{hour} : {minute} : {second}')
+    def upsetline(self):
+        layouts = '''*{
+            color: 'black';
+            border: 1px solid '#808080';
+            font-family: 'Arial';
+            font-size: 16px;
+            border-radius: 12px;
+            margin: 1px 1px;
+            padding: 1px;
+                }'''
+        self.label_54.setPixmap(QPixmap(""))
+        self.label_54.setText("     تصویر")
+        self.label_54.setStyleSheet(layouts)
+        self.label_53.setStyleSheet(layouts)
+        self.label_53.setText("     اطلاعات")
+
+
+
 
     def upset(self):
-            self.line.show()
+
+            self.timer2 = QTimer(self)
+            # layout.addWidget(self.label_43)
+            self.timer2.timeout.connect(self.upsetline)
+            self.timer2.start(10000)
+            # self.line = self.lineEdit
+            self.lineEdit.show()
             self.pushButton.hide()
-            self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 281))
+            self.lineEdit.setGeometry(QtCore.QRect(860, 330, 158, 22))
+            # self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 281))
             time = jdatetime.datetime.now()
             inday = time.day
             inmonth = time.month
@@ -580,24 +654,27 @@ class Ui_MainWindow(QtWidgets.QWidget):
             with open('data.json') as outfile:
                 data = json.load(outfile)
 
-            in_pass = self.line.text()
-            self.line.clear()
-            if True:
+            in_pass = self.lineEdit.text()
+            self.lineEdit.clear()
+            if in_pass!="":
                 for student in range(len(datadaily[f'{inyear}-{inmonth}-{inday}'])):
                     if datadaily['0'][student]['ID']==in_pass:
                         datadaily[f'{inyear}-{inmonth}-{inday}'][student]["today"]=1
                         datadaily[f'{inyear}-{inmonth}-{inday}'][student]["time"]=f'{time.hour}.{time.minute}'
                         datadaily[f'{inyear}-{inmonth}-{inday}'][student]["repeat"]+=1
-                        self.label.setPixmap(QPixmap(data[student]['filename']))
-                        self.label.setStyleSheet(
+                        self.pixmap = QPixmap(data[student]['filename'])
+                        self.pixmap_resized = self.pixmap.scaled(220, 205, QtCore.Qt.KeepAspectRatio)
+                        self.label_54.setPixmap(self.pixmap_resized)
+
+                        self.label_54.setStyleSheet(
                                 '''*{
                         border: 2px solid '#BC006C';
                         border-radius: 12px;
                         margin: 2px 2px;
                         padding: 6px;
                             }''')
-                        self.label_2.setText('نام و نام خانوادگی :'
-                                +str(data[student]['name'])+' '+str(data[student]['family'])+'\n ساعت ورود:  '+f'{time.hour}:{time.minute}'+'\n'+ 'پایه ی '+str(data[student]['class']))
+                        self.label_53.setText('نام  :'
+                                +str(data[student]['name'])+' '+str(data[student]['family'])+'\n ساعت ورود:  '+f'{time.hour}:{time.minute}'+'\n'+ 'پایه ی: '+str(data[student]['class']))
 
                         cl = data[student]['class']
                         try:
@@ -617,30 +694,30 @@ class Ui_MainWindow(QtWidgets.QWidget):
                             daily['er'] = []
                             daily["er"].append(data[student]['ID'])
 
-                        self.label_3.setStyleSheet('''*{
-                                color: 'black';
-                                border: 2px solid '#BC006C';
-                                font-family: 'Arial';
-                                font-size: 32px;
-                                border-radius: 12px;
-                                margin: 2px 2px;
-                                padding: 6px;
-                                background-color:'green';
-                            }''')
+                        # self.label_53.setStyleSheet('''*{
+                        #         color: 'black';
+                        #         border: 2px solid '#BC006C';
+                        #         font-family: 'Arial';
+                        #         font-size: 32px;
+                        #         border-radius: 12px;
+                        #         margin: 2px 2px;
+                        #         padding: 6px;
+                        #         background-color:'green';
+                        #     }''')
                         # self.label_3.setText(" ")
-                        self.label_2.setStyleSheet(
+                        self.label_53.setStyleSheet(
                             '''*{
                         color: 'black';
                         border: 2px solid '#BC006C';
                         font-family: 'Arial';
-                        font-size: 32px;
+                        font-size: 16px;
                         border-radius: 12px;
-                        margin: 2px 2px;
-                        padding: 6px; 
+                        margin: 1px 1px;
+                        padding: 1px; 
                             }''')
             else:
-                self.pushButton.show()
-                self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 111))
+                # self.pushButton.show()
+                # self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 111))
                 # o+=1
                 # if o == 3:
                 true=0

@@ -241,7 +241,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             p = gui.open_image()
     # up is to take image
 
-            if done1 and done2 and done4 :
+            if done1 and done2 and done4!="" :
                 try:
                     with open('data.json') as json_file:
                         data = json.load(json_file)
@@ -278,7 +278,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
                                 'class':classs
                                         })
                     if name != "" and family != "":
-                        self.label_5.setPixmap(QPixmap(p))
+                        self.pixmap = QPixmap(p)
+                        self.pixmap_resized = self.pixmap.scaled(320, 405, QtCore.Qt.KeepAspectRatio)
+                        self.label_5.setPixmap(self.pixmap_resized)
                         self.label_5.setStyleSheet(
                                                 '''*{
                                                     color: 'black';
