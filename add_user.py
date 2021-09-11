@@ -274,6 +274,17 @@ class Ui_MainWindow(QtWidgets.QWidget):
                     QMessageBox.information(self," ","شماره تلفن باید  شامل  عدد  باشد")
             d4 = True
             while d4:
+                try:
+                    with open('data.json') as json_file:
+                        data = json.load(json_file)
+                except:
+                    data=[]
+                    with open('data.json', 'w+') as outfile:
+                        json.dump(data, outfile)
+                    data=[]
+                    with open('data.json', 'w+') as outfile:
+                        json.dump(data, outfile)
+
                 code, done7 = QtWidgets.QInputDialog.getText(
                     self, 'Input telephone', 'کد ملی خود را وارد کنید :')
                 if done7:
@@ -282,8 +293,19 @@ class Ui_MainWindow(QtWidgets.QWidget):
                 try:
                     if code:
                         if int(code):
-                            d4 = False
-                            pass
+                            print("dd")
+                            true = 0
+                            # true2 = 0
+                            for tRue in data:
+                                if tRue['code']==code and tRue['name']==name and tRue['family']==family:
+                                    true = 1
+                                    QMessageBox.information(self," ",f"این شخص قبلا ثبت شده است.\n{tRue['name']},{tRue['family']},{tRue['code']}")
+                                else:
+                                    # d5 = False
+                                    pass
+
+                            if not true:
+                                d4=False
                         else:
                             QMessageBox.information(self," ","باید  شامل عدد باشد")
                     else:
@@ -293,6 +315,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
             # langs =['C', 'c++', 'Java', 'Python', 'Javascript']
             d5 = True
             while d5:
+
+
+
                 password , done4 = QtWidgets.QInputDialog.getText(
                     self, 'put youre card', 'کارت را در معرض دستگاه قرار دهید:')
                 if done4:
@@ -301,8 +326,19 @@ class Ui_MainWindow(QtWidgets.QWidget):
                 try:
                     if password:
                         if int(password):
-                            d5 = False
-                            pass
+                            true = 0
+                            true2 = 0
+                            for tRue in data:
+                                if tRue['ID']==password:
+                                    true = 1
+                                    QMessageBox.information(self," ","این کارت تکراری است.")
+                                else:
+                                    # d5 = False
+                                    pass
+
+                            if not true:
+                                d5=False
+                            # pass
                         else:
                             QMessageBox.information(self," ","باید  شامل عدد باشد")
                     else:QMessageBox.information(self," ","باید  شامل عدد باشد")
@@ -340,8 +376,19 @@ class Ui_MainWindow(QtWidgets.QWidget):
                 try:
                     if personalcode:
                         if int(personalcode):
-                            d7 = False
-                            pass
+                            true = 0
+                            # true2 = 0
+                            for tRue in data:
+                                if tRue['personalcode']==personalcode:
+                                    true = 1
+                                    QMessageBox.information(self," ",f"ببخشید آقای {tRue['family']} گویا شخصی میخواهد جای شمارا بگیرد.")
+                                else:
+                                    # d5 = False
+                                    pass
+
+                            if not true:
+                                d7=False
+                            # pass
                         else:
                             QMessageBox.information(self," ","باید  شامل عدد باشد")
                     else:d7=False

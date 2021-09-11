@@ -24,6 +24,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(QtWidgets.QWidget):
     def setupUi(self, MainWindow):
+        self.setMouseTracking(True)
         # layouts
         layouts = '''*{
             color: 'black';
@@ -105,10 +106,13 @@ class Ui_MainWindow(QtWidgets.QWidget):
         # end layouts
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1068, 632)
+        MainWindow.setStyleSheet('''*{
+            }''')
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(860, 130, 160, 191))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(740, 60, 280, 311))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -118,7 +122,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.label_54.setStyleSheet(layouts)
         self.verticalLayout.addWidget(self.label_54)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(860, 360, 161, 141))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(740, 400, 280, 141))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -129,7 +133,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.verticalLayout_2.addWidget(self.label_53)
         # start of dep 2
         self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(60, 130, 351, 371))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(60, 130, 300, 371))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -243,7 +247,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
         # end of department
         self.gridLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(470, 130, 351, 371))
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(410, 130, 300, 371))
         self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -315,11 +319,16 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.gridLayout_2.addWidget(self.label_34, 6, 1, 1, 1)
         self.label_33 = QtWidgets.QLabel(self.gridLayoutWidget_2)
         self.label_33.setStyleSheet(layouts_down)
-        
+        def printt(self):
+            print("wooba")
         self.gridLayout_2.addWidget(self.label_33, 6, 2, 1, 1)
         self.label_36 = QtWidgets.QLabel(self.gridLayoutWidget_2)
         self.label_36.setStyleSheet(layouts)
-        
+        # self.label_36.mousePressEvent(self.pushButton.click)
+        # self.pushButton_36 = QtWidgets.QPushButton(self.centralwidget)
+        # self.pushButton_36.setGeometry(QtCore.QRect(400, 330, 40, 20))
+        # self.pushButton_36.
+
         self.gridLayout_2.addWidget(self.label_36, 0, 0, 1, 1)
         self.label_41 = QtWidgets.QLabel(self.gridLayoutWidget_2)
         self.label_41.setStyleSheet(layouts)
@@ -371,10 +380,11 @@ class Ui_MainWindow(QtWidgets.QWidget):
                     background: transparent;
                     background-color: rgba(100, 100, 100, 0.9);
                         }''')
+        self.pushButton.hide()
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(860, 330, 111, 22))
+        self.lineEdit.setGeometry(QtCore.QRect(860, 330, 1, 1))
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.hide()
+        # self.lineEdit.hide()
         self.lineEdit.setStyleSheet('''*{
                                         border-radius: 8px;
                                     }''')
@@ -382,7 +392,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
 
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(60, 510, 761, 71))
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(60, 510, 651, 83))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -391,8 +401,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.label_51.setStyleSheet(layouts)
         
         self.verticalLayout_3.addWidget(self.label_51)
+        # self.label_51.closeEvent(a0=)
         self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(860, 510, 160, 71))
+        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(740, 550, 280, 41))
         self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_4)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -404,7 +415,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
         # start of dep main
         self.gridLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget_3.setGeometry(QtCore.QRect(60, 69, 761, 51))
+        self.gridLayoutWidget_3.setGeometry(QtCore.QRect(60, 69, 650, 51))
         self.gridLayoutWidget_3.setObjectName("gridLayoutWidget_3")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.gridLayoutWidget_3)
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -493,7 +504,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
 
         self.verticalLayoutWidget_5 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(860, 10, 161, 101))
+        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(800, 10, 161, 44))
         self.verticalLayoutWidget_5.setObjectName("verticalLayoutWidget_5")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -504,7 +515,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         
         self.verticalLayout_5.addWidget(self.label_43)
         self.verticalLayoutWidget_6 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_6.setGeometry(QtCore.QRect(59, 10, 761, 41))
+        self.verticalLayoutWidget_6.setGeometry(QtCore.QRect(59, 10, 650, 41))
         self.verticalLayoutWidget_6.setObjectName("verticalLayoutWidget_6")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_6)
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -518,8 +529,16 @@ class Ui_MainWindow(QtWidgets.QWidget):
         #set clock
         self.timer = QTimer(self)
         # layout.addWidget(self.label_43)
+        self.timer.singleShot(1,self.timerr)
         self.timer.timeout.connect(self.timerr)
         self.timer.start(1000)
+        # self.timer.
+        self.timermain = QTimer(self)
+        # layout.addWidget(self.label_43)
+        self.timermain.singleShot(1,self.upset)
+        self.timermain.timeout.connect(self.upsetline)
+        self.timermain.start(10000)
+
         # self.timer2 = QTimer(self)
         # # layout.addWidget(self.label_43)
         # self.timer2.timeout.connect(self.upsetline)
@@ -656,6 +675,12 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
 
     def upset(self):
+            def enterEvent(self, event):
+               print("Enter:", self.objectName())
+ 
+            def leaveEvent(self, event):
+                print("Leave:", self.objectName())
+ 
             # layouts
             layouts = '''*{
                 color: 'black';
@@ -736,16 +761,18 @@ class Ui_MainWindow(QtWidgets.QWidget):
                     }'''
             # end layouts
             # self.timer2.stop()
-            self.timer2 = QTimer(self)
-            self.timer2.stop()
+            # self.timer2 = QTimer(self)
+            # self.timer2.stop()
             # layout.addWidget(self.label_43)
-            self.timer2.timeout.connect(self.upsetline)
-            self.timer2.start(10000)
+            # self.timer2.timeout.connect(self.upsetline)
+            # self.timer2.start(10000)
             # self.timer2.destroyed()
+            # self.timer2.singleShot(10000,self.upsetline)
             # self.line = self.lineEdit
             self.lineEdit.show()
+            # LINEEDIT GEOGRAPHY
             self.pushButton.hide()
-            self.lineEdit.setGeometry(QtCore.QRect(860, 330, 158, 22))
+            self.lineEdit.setGeometry(QtCore.QRect(740, 375, 280, 21))
             # self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 281))
             time = jdatetime.datetime.now()
             inday = time.day
@@ -787,6 +814,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             for i in range(len(number_of_class)):
                 if number_of_class[i]=="":
                     number_of_class.pop(i)
+                    break
             # print(number_of_class)
             try:
                 if datadaily[f'{inyear}-{inmonth}-{inday}'] != []:
@@ -799,7 +827,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
                     pass
             except:
                 daily['0'] = [{"people":[]}]
-                daily[f'{inyear}-{inmonth}-{inday}'] = [{f'{number_of_class[i]}':0 for i in range(len(number_of_class))}]
+                daily[f'{inyear}-{inmonth}-{inday}'] = [{f'{number_of_class[i]}':[] for i in range(len(number_of_class))}]
 
 
             with open('data.json') as outfile:
@@ -946,6 +974,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
                             #     self.label_66.setStyleSheet(layoutsL_SUP)
                             #     self.label_57.setText(f'{data[student]["family"]}')
                             # if int(data[student]['personalcode'])==1:
+
+                        # for checking personalcode for teacher
                         if len(data[student]['personalcode'])==3:
                             # print("2")
                             if data[student]['personalcode']==number_of_class[0]:
@@ -1012,254 +1042,153 @@ class Ui_MainWindow(QtWidgets.QWidget):
                                 # pass
                                 self.label_47.setStyleSheet(layouts_up)
                                 self.label_46.setText(f'{data[student]["family"]}')
-                            # elif data[student]['personalcode']==number_of_class[16]:
-                                # pass
-                                # self.label_47.setStyleSheet(layouts_up)
-                            # if len(data[student]['personalcode'])==1:
-                            # print("d")
-                            if int(data[student]['personalcode'])==1:
-                                self.label_55.setStyleSheet(layoutsL_SUP)
-                                self.label_56.setText(f'{data[student]["family"]}')
-                            if int(data[student]['personalcode'])==2:
-                                self.label_58.setStyleSheet(layoutsL_SUP)
-                                self.label_67.setText(f'{data[student]["family"]}')
-                            if int(data[student]['personalcode'])==3:
-                                self.label_60.setStyleSheet(layoutsL_SUP)
-                                self.label_73.setText(f'{data[student]["family"]}')
-                            if int(data[student]['personalcode'])==4:
-                                self.label_62.setStyleSheet(layoutsL_SUP)
-                                self.label_71.setText(f'{data[student]["family"]}')
-                            if int(data[student]['personalcode'])==5:
-                                self.label_64.setStyleSheet(layoutsL_SUP)
-                                self.label_69.setText(f'{data[student]["family"]}')
-                            if int(data[student]['personalcode'])==6:
-                                self.label_65.setStyleSheet(layoutsL_SUP)
-                                self.label_68.setText(f'{data[student]["family"]}')
-                            # if int(data[student]['personalcode'])==7:
-                            #     self.label_66.setStyleSheet(layoutsL_SUP)
-                            #     self.label_57.setText(f'{data[student]["family"]}')
-                            # if int(data[student]['personalcode'])==8:
-                            #     self.label_66.setStyleSheet(layoutsL_SUP)
-                            #     self.label_57.setText(f'{data[student]["family"]}')
-                            # if int(data[student]['personalcode'])==9:
-                            #     self.label_66.setStyleSheet(layoutsL_SUP)
-                            #     self.label_57.setText(f'{data[student]["family"]}')
-                            # if int(data[student]['personalcode'])==1:
-                        # if len(data[student]['class'])==3:
-                        #     # print("2")
-                        #     if data[student]['class']==number_of_class[0]:
-                        #         self.label_25.setStyleSheet(layouts_up)
-                        #         self.label_32.setText(f'{data[student]["family"]}')
-                        #         pass
-                        #     elif data[student]['class']==number_of_class[1]:
-                        #         self.label_22.setStyleSheet(layouts_up)
-                        #         self.label_30.setText(f'{data[student]["family"]}')
-                        #         pass
-                        #     elif data[student]['class']==number_of_class[2]:
-                        #         self.label_29.setStyleSheet(layouts_up)
-                        #         self.label_23.setText(f'{data[student]["family"]}')
-                        #         pass
-                        #     elif data[student]['class']==number_of_class[3]:
-                        #         # pass
-                        #         self.label_31.setStyleSheet(layouts_up)
-                        #         self.label_35.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[4]:
-                        #         # pass
-                        #         self.label_28.setStyleSheet(layouts_up)
-                        #         self.label_27.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[5]:
-                        #         # pass
-                        #         self.label_26.setStyleSheet(layouts_up)
-                        #         self.label_24.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[6]:
-                        #         # pass
-                        #         self.label_33.setStyleSheet(layouts_up)
-                        #         self.label_34.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[7]:
-                        #         # pass
-                        #         self.label_50.setStyleSheet(layouts_up)
-                        #         self.label_49.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[8]:
-                        #         # pass
-                        #         self.label.setStyleSheet(layouts_up)
-                        #         self.label_8.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[9]:
-                        #         # pass
-                        #         self.label_2.setStyleSheet(layouts_up)
-                        #         self.label_9.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[10]:
-                        #         # pass
-                        #         self.label_3.setStyleSheet(layouts_up)
-                        #         self.label_10.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[11]:
-                        #         # pass
-                        #         self.label_4.setStyleSheet(layouts_up)
-                        #         self.label_11.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[12]:
-                        #         # pass
-                        #         self.label_5.setStyleSheet(layouts_up)
-                        #         self.label_12.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[13]:
-                        #         # in_pass
-                        #         self.label_6.setStyleSheet(layouts_up)
-                        #         self.label_13.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[14]:
-                        #         # pass
-                        #         self.label_7.setStyleSheet(layouts_up)
-                        #         self.label_14.setText(f'{data[student]["family"]}')
-                        #     elif data[student]['class']==number_of_class[15]:
-                        #         # pass
-                        #         self.label_47.setStyleSheet(layouts_up)
-                        #         self.label_46.setText(f'{data[student]["family"]}')
-                        #     # elif data[student]['personalcode']==number_of_class[16]:
-                        #         # pass
-                        #         # self.label_47.setStyleSheet(layouts_up)    
-
-
-
-                        datadaily[f'{inyear}-{inmonth}-{inday}'][student]["today"]=1
-                        datadaily[f'{inyear}-{inmonth}-{inday}'][student]["time"]=f'{time.hour}.{time.minute}'
-                        datadaily[f'{inyear}-{inmonth}-{inday}'][student]["repeat"]+=1
-                        from pathlib import Path
-                        my_file = Path(f'{data[student]["filename"]}')
-                        if my_file.is_file():
-                            self.pixmap = QPixmap(data[student]['filename'])
-                            # print(data[student]['filename'])
-                            self.pixmap_resized = self.pixmap.scaled(220, 205, QtCore.Qt.KeepAspectRatio)
-                            self.label_54.setPixmap(self.pixmap_resized)
-                        else:
-                            self.label_54.setText("     تصویر موجود نیست ")
-                        self.label_54.setStyleSheet(
-                                '''*{
-                        border: 2px solid '#BC006C';
-                        border-radius: 12px;
-                        margin: 2px 2px;
-                        padding: 6px;
-                            }''')
-                        self.label_53.setText('نام  :'
-                                +str(data[student]['name'])+' '+str(data[student]['family'])+'\n ساعت ورود:  '+f'{time.hour}:{time.minute}'+'\n'+ 'پایه ی: '+str(data[student]['class']))
-
-                        cl = data[student]['class']
-                        # print(cl)
-                        try:
-                            # for i in range(len(daily["er"])):
-                            if data[student]['ID'] not in daily["0"][0]['people']:
-                                daily['0'][0]['people'].append(data[student]['ID'])
-                                # count = len(daily['0'][0]['people'])
-                                # print(daily['0'][0]['people'])
-                                if data[student]['personalcode']!='10':
-                                    # this is just to breack the point
-                                    # daily['0'][0]['people'].drop()
-                                    self.quit()
-                                    # pass
-                                # print(daily['0'][0]['people'])
-                                # print(len(daily['0'][0]['people']))
-                                # if daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}'] != []:
-                                daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']+=1
-                            # if len(data[student]['class'])==3:
-                            # print("2")
-                                if data[student]['class']==number_of_class[0]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_36.setText(f'{f}')
-                                    pass
-                                elif data[student]['class']==number_of_class[1]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_37.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[2]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_38.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[3]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_39.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[4]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_40.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[5]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_42.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[6]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_42.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[7]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_48.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[8]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_15.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[9]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_16.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[10]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_17.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[11]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_18.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[12]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_19.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[13]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_20.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[14]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_21.setText(f'{f}')
-                                elif data[student]['class']==number_of_class[15]:
-                                    f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
-                                    # self.label_25.setStyleSheet(layouts_up)
-                                    self.label_45.setText(f'{f}')
-                            # elif data[student]['personalcode']==number_of_class[16]:
-                                # pass
-                                # self.label_47.setStyleSheet(layouts_up)
-                                    # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
-                                # else:
-                                    # daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}']=1
-                                    # daily[f'{inyear}-{inmonth}-{inday}'][] = []
-                                    # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
+                        if len(data[student]["class"])==3:
+                            datadaily[f'{inyear}-{inmonth}-{inday}'][student]["today"]=1
+                            datadaily[f'{inyear}-{inmonth}-{inday}'][student]["time"]=f'{time.hour}.{time.minute}'
+                            datadaily[f'{inyear}-{inmonth}-{inday}'][student]["repeat"]+=1
+                            from pathlib import Path
+                            my_file = Path(f'{data[student]["filename"]}')
+                            if my_file.is_file():
+                                self.pixmap = QPixmap(data[student]['filename'])
+                                # print(data[student]['filename'])
+                                self.pixmap_resized = self.pixmap.scaled(320, 425, QtCore.Qt.KeepAspectRatio)
+                                self.label_54.setPixmap(self.pixmap_resized)
                             else:
-                                pass
-                        except:pass
-                            # daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}']=1
-                            # daily[f'{inyear}-{inmonth}-{inday}']['er'] = []
-                            # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
-                        # for i in number_of_class:
+                                self.label_54.setText("     تصویر موجود نیست ")
+                            self.label_54.setStyleSheet(
+                                    '''*{
+                            border: 2px solid '#BC006C';
+                            border-radius: 12px;
+                            margin: 2px 2px;
+                            padding: 6px;
+                                }''')
+                            self.label_53.setText('نام  :'
+                                    +str(data[student]['name'])+' '+str(data[student]['family'])+'\n ساعت ورود:  '+f'{time.hour}:{time.minute}'+'\n'+ 'پایه ی: '+str(data[student]['class']))
 
-                        # self.label_53.setStyleSheet('''*{
-                        #         color: 'black';
-                        #         border: 2px solid '#BC006C';
-                        #         font-family: 'Arial';
-                        #         font-size: 32px;
-                        #         border-radius: 12px;
-                        #         margin: 2px 2px;
-                        #         padding: 6px;
-                        #         background-color:'green';
-                        #     }''')
-                        # self.label_3.setText(" ")
-                        self.label_53.setStyleSheet(
-                            '''*{
-                        color: 'black';
-                        border: 2px solid '#BC006C';
-                        font-family: 'Arial';
-                        font-size: 16px;
-                        border-radius: 12px;
-                        margin: 1px 1px;
-                        padding: 1px; 
-                            }''')
+                            cl = data[student]['class']
+                            # print(cl)
+                            try:
+                                # for i in range(len(daily["er"])):
+                                if data[student]['ID'] not in daily["0"][0]['people']:
+                                    daily['0'][0]['people'].append(data[student]['ID'])
+                                    # count = len(daily['0'][0]['people'])
+                                    # print(daily['0'][0]['people'])
+                                    # print("error")
+                                    if data[student]['personalcode']!='10':
+                                        # print("error2")
+                                        # this is just to breack the point
+                                        # daily['0'][0]['people'].drop()
+                                        self.quit()
+                                        # pass
+                                    # print(daily['0'][0]['people'])
+                                    # print(len(daily['0'][0]['people']))
+                                    # if daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}'] != []:
+                                    daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}'].append(data[student]["ID"])
+                                # if len(data[student]['class'])==3:
+                                # print("2")
+                                    if data[student]['class']==number_of_class[0]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_36.setText(f'{len(f)}')
+                                        self.label_36.enterEvent(print("sd"))
+                                        pass
+                                    elif data[student]['class']==number_of_class[1]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_37.setText(f'{len(f)}')
+                                    elif data[student]['class']==number_of_class[2]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_38.setText(f'{len(f)}')
+                                    elif data[student]['class']==number_of_class[3]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_39.setText(f'{len(f)}')
+                                    elif data[student]['class']==number_of_class[4]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_40.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[5]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_42.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[6]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_42.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[7]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_48.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[8]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_15.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[9]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_16.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[10]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_17.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[11]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_18.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[12]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_19.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[13]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_20.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[14]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_21.setText(f'{f}')
+                                    elif data[student]['class']==number_of_class[15]:
+                                        f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl}']
+                                        # self.label_25.setStyleSheet(layouts_up)
+                                        self.label_45.setText(f'{f}')
+                                # elif data[student]['personalcode']==number_of_class[16]:
+                                    # pass
+                                    # self.label_47.setStyleSheet(layouts_up)
+                                        # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
+                                    # else:
+                                        # daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}']=1
+                                        # daily[f'{inyear}-{inmonth}-{inday}'][] = []
+                                        # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
+                                else:
+                                    pass
+                            except:pass
+                                # daily[f'{inyear}-{inmonth}-{inday}'][f'{cl}']=1
+                                # daily[f'{inyear}-{inmonth}-{inday}']['er'] = []
+                                # daily[f'{inyear}-{inmonth}-{inday}']["er"].append(data[student]['ID'])
+                            # for i in number_of_class:
+
+                            # self.label_53.setStyleSheet('''*{
+                            #         color: 'black';
+                            #         border: 2px solid '#BC006C';
+                            #         font-family: 'Arial';
+                            #         font-size: 32px;
+                            #         border-radius: 12px;
+                            #         margin: 2px 2px;
+                            #         padding: 6px;
+                            #         background-color:'green';
+                            #     }''')
+                            # self.label_3.setText(" ")
+                            self.label_53.setStyleSheet(
+                                '''*{
+                            color: 'black';
+                            border: 2px solid '#BC006C';
+                            font-family: 'Arial';
+                            font-size: 16px;
+                            border-radius: 12px;
+                            margin: 1px 1px;
+                            padding: 1px; 
+                                }''')
             else:
                 # self.pushButton.show()
                 # self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(750, 40, 481, 111))
