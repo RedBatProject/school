@@ -26,6 +26,7 @@ class AnotherWindow(QWidget):
 	This "window" is a QWidget. If it has no parent, it
 	will appear as a free-floating window as we want.
 	"""
+
 	def __init__(self,name):
 		super().__init__()
 		self.name = name
@@ -33,6 +34,7 @@ class AnotherWindow(QWidget):
 		self.inday = self.time.day
 		self.inmonth = self.time.month
 		self.inyear = self.time.year
+
 		try:
 			with open('datadaily.json') as json_filedaily:
 				self.datadaily = json.load(json_filedaily)
@@ -62,7 +64,7 @@ class AnotherWindow(QWidget):
 			# print(datadaily[0])
 		self.dayP = []
 		self.dayP = self.daily[f'{self.inyear}-{self.inmonth}-{self.inday}'][0][f'{self.name}']
-
+		# print(self.dayP)
 		# print(dayL)
 		# print(daily[f'{inyear}-{inmonth}-{inday}'][0][f'{self.name}'])
 		# print("fffffffffffffffffffffffffffffffffffffffffffff")
@@ -207,6 +209,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 							}'''
 		layoutsclock = '''*{
 			color: 'black';
+			background-color: #c0c0c0;
 			border: 1px solid '#808080';
 			font-family: 'Arial';
 			font-size: 24px;
@@ -243,7 +246,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 			padding: 0px;
 			background-color: rgba(0, 100, 0, 0.5);
 				}'''
-		showstu = '''*{background:transparent;}'''
+		showstu = '''*{background:transparent}'''
 		# end layouts
 		MainWindow.setObjectName("MainWindow")
 		MainWindow.resize(1068, 632)
@@ -299,7 +302,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_18.setObjectName("label_18")
 		self.label_18.setStyleSheet(layouts)
 		self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_18.setGeometry(QtCore.QRect(65, 276, 78, 32))
+		self.pushButton_18.setGeometry(QtCore.QRect(65, 320, 78, 32))
 		self.pushButton_18.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_18, 3, 0, 1, 1)
@@ -312,7 +315,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_17.setObjectName("label_17")
 		self.label_17.setStyleSheet(layouts)
 		self.pushButton_17 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_17.setGeometry(QtCore.QRect(65, 228, 78, 32))
+		self.pushButton_17.setGeometry(QtCore.QRect(65, 268, 78, 32))
 		self.pushButton_17.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_17, 2, 0, 1, 1)
@@ -320,7 +323,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_19.setObjectName("label_19")
 		self.label_19.setStyleSheet(layouts)
 		self.pushButton_19 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_19.setGeometry(QtCore.QRect(65, 323, 78, 32))
+		self.pushButton_19.setGeometry(QtCore.QRect(65, 370, 78, 32))
 		self.pushButton_19.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_19, 4, 0, 1, 1)
@@ -358,14 +361,14 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_16 = QtWidgets.QLabel(self.gridLayoutWidget)
 		self.label_16.setStyleSheet(layouts)
 		self.pushButton_16 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_16.setGeometry(QtCore.QRect(65, 180,78, 32))
+		self.pushButton_16.setGeometry(QtCore.QRect(65, 217,78, 32))
 		self.pushButton_16.setStyleSheet(showstu)
 
 		self.gridLayout.addWidget(self.label_16, 1, 0, 1, 1)
 		self.label_15 = QtWidgets.QLabel(self.gridLayoutWidget)
 		self.label_15.setStyleSheet(layouts)
 		self.pushButton_15 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_15.setGeometry(QtCore.QRect(65, 135, 78, 32))
+		self.pushButton_15.setGeometry(QtCore.QRect(65, 165, 78, 32))
 		self.pushButton_15.setStyleSheet(showstu)
 		# self.pushButton_15.clicked.connect(lambda:self.printt(101))
 		
@@ -381,14 +384,14 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_20 = QtWidgets.QLabel(self.gridLayoutWidget)
 		self.label_20.setStyleSheet(layouts)
 		self.pushButton_20 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_20.setGeometry(QtCore.QRect(65, 370, 78, 32))
+		self.pushButton_20.setGeometry(QtCore.QRect(65, 420, 78, 32))
 		self.pushButton_20.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_20, 5, 0, 1, 1)
 		self.label_21 = QtWidgets.QLabel(self.gridLayoutWidget)
 		self.label_21.setStyleSheet(layouts)
 		self.pushButton_21 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_21.setGeometry(QtCore.QRect(65, 417, 78, 32))
+		self.pushButton_21.setGeometry(QtCore.QRect(65, 470, 78, 32))
 		self.pushButton_21.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_21, 6, 0, 1, 1)
@@ -399,7 +402,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_45 = QtWidgets.QLabel(self.gridLayoutWidget)
 		self.label_45.setStyleSheet(layouts)
 		self.pushButton_45 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_45.setGeometry(QtCore.QRect(65, 465, 78, 32))
+		self.pushButton_45.setGeometry(QtCore.QRect(65, 520, 78, 32))
 		self.pushButton_45.setStyleSheet(showstu)
 		
 		self.gridLayout.addWidget(self.label_45, 7, 0, 1, 1)
@@ -434,7 +437,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_37 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_37.setStyleSheet(layouts)
 		self.pushButton_37 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_37.setGeometry(QtCore.QRect(415, 180, 78, 32))
+		self.pushButton_37.setGeometry(QtCore.QRect(415, 220, 78, 32))
 		self.pushButton_37.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_37, 1, 0, 1, 1)
@@ -456,7 +459,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_40 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_40.setStyleSheet(layouts)
 		self.pushButton_40 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_40.setGeometry(QtCore.QRect(415, 325, 78, 32))
+		self.pushButton_40.setGeometry(QtCore.QRect(415, 370, 78, 32))
 		self.pushButton_40.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_40, 4, 0, 1, 1)
@@ -484,14 +487,14 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_38 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_38.setStyleSheet(layouts)
 		self.pushButton_38 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_38.setGeometry(QtCore.QRect(415, 228, 78, 32))
+		self.pushButton_38.setGeometry(QtCore.QRect(415, 268, 78, 32))
 		self.pushButton_38.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_38, 2, 0, 1, 1)
 		self.label_39 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_39.setStyleSheet(layouts)
 		self.pushButton_39 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_39.setGeometry(QtCore.QRect(415, 276, 78, 32))
+		self.pushButton_39.setGeometry(QtCore.QRect(415, 320, 78, 32))
 		self.pushButton_39.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_39, 3, 0, 1, 1)
@@ -506,14 +509,14 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_36 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_36.setStyleSheet(layouts)
 		self.pushButton_36 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_36.setGeometry(QtCore.QRect(415, 135, 78, 32))
+		self.pushButton_36.setGeometry(QtCore.QRect(415, 165, 78, 32))
 		self.pushButton_36.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_36, 0, 0, 1, 1)
 		self.label_41 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_41.setStyleSheet(layouts)
 		self.pushButton_41 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_41.setGeometry(QtCore.QRect(415, 368, 78, 32))
+		self.pushButton_41.setGeometry(QtCore.QRect(415, 470, 78, 32))
 		self.pushButton_41.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_41, 5, 0, 1, 1)
@@ -524,7 +527,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_48 = QtWidgets.QLabel(self.gridLayoutWidget_2)
 		self.label_48.setStyleSheet(layouts)
 		self.pushButton_48 = QtWidgets.QPushButton(self.centralwidget)
-		self.pushButton_48.setGeometry(QtCore.QRect(415, 465, 78, 32))
+		self.pushButton_48.setGeometry(QtCore.QRect(415,520, 78, 32))
 		self.pushButton_48.setStyleSheet(showstu)
 		
 		self.gridLayout_2.addWidget(self.label_48, 7, 0, 1, 1)
@@ -859,7 +862,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 		self.label_58.setText(_translate("MainWindow", ""))
 		self.label_74.setText(_translate("MainWindow", ""))
 		self.label_43.setText(_translate("MainWindow", "clock"))
-		self.label_44.setText(_translate("MainWindow", "greeting"))
+		self.label_44.setText(_translate("MainWindow", "                          به مدرسه دکتر علی شریعتی خوش آمدید"))
 
 	def timerr(self):
 		time = jdatetime.datetime.now()
@@ -948,6 +951,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 								}'''
 			layoutsclock = '''*{
 				color: 'black';
+				background-color: red;
 				border: 1px solid '#808080';
 				font-family: 'Arial';
 				font-size: 24px;
@@ -1031,7 +1035,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 			number_of_class = []
 			numberOfTeacher = 0
 			for ind in range(len(data)):
-				if len(data[ind]['personalcode'])!=1:
+				if len(data[ind]['personalcode'])!=2:
 					numberOfTeacher+=1
 			totalnumber = len(data) - numberOfTeacher
 			# print(totalnumber)
@@ -1048,6 +1052,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
 				if number_of_class[i]=="":
 					number_of_class.pop(i)
 					break
+			# number_of_class.append('999')
+			tof = daily['0'][0]['people']
+			self.label_52.setText(f'تعداد {len(tof)} نفر از  {totalnumber} نفر حاضر هستند.')
 			# print(number_of_class)
 			try:
 				if datadaily[f'{inyear}-{inmonth}-{inday}'] != []:
@@ -1084,26 +1091,30 @@ class Ui_MainWindow(QtWidgets.QWidget):
 					if number_of_class[i]==number_of_class[0]:
 						cl1 = number_of_class[i]
 						# cl = number_of_class[i]
-						# print(cl)
+						# print(cl1)
 						f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl1}']
-						# self.label_25.setStyleSheet(layouts_up)
 						self.label_36.setText(f'{len(f)}')
-						# self.label_36.enterEvent(print("sd"))
-						# print(cl)
 						self.pushButton_36.clicked.connect(lambda:self.printt(cl1))
-						pass
+						# pass
 					elif number_of_class[i]==number_of_class[1]:
 						cl2 = number_of_class[i]
 						f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl2}']
 						# self.label_25.setStyleSheet(layouts_up)
 						self.label_37.setText(f'{len(f)}')
+						# print(cl1)
+						# print(cl2)
+						# print(f)
 						self.pushButton_37.clicked.connect(lambda:self.printt(cl2))
 					elif number_of_class[i]==number_of_class[2]:
+
 						cl3 = number_of_class[i]
+						# print(cl3)
 						f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl3}']
 						# self.label_25.setStyleSheet(layouts_up)
 						self.label_38.setText(f'{len(f)}')
 						self.pushButton_38.clicked.connect(lambda:self.printt(cl3))
+						# print(cl3)
+						# print(i)
 					elif number_of_class[i]==number_of_class[3]:
 						cl4 = number_of_class[i]
 						f=daily[f'{inyear}-{inmonth}-{inday}'][-1][f'{cl4}']
@@ -1182,7 +1193,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 						# self.label_25.setStyleSheet(layouts_up)
 						self.label_45.setText(f'{f}')
 						self.pushButton_45.clicked.connect(lambda:self.printt(cl16))
-			except:print("ff")
+			except:pass
 			# try:
 			# 	for student in daily['0'][0]['teacher']:
 			# 		# daily['0'][0]['teacher'].append(data[student]['ID'])
